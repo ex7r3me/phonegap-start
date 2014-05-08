@@ -28,7 +28,7 @@
                     "// Create new model\r",
                     "var model = Ext.create('model.mymodel', {\r",
                     "    id: 123,\r",
-                    "    text: 'Hello World'   \r",
+                    "    text: 'Hello World'\r",
                     "});\r",
                     "\r",
                     "// Bind model to view\r",

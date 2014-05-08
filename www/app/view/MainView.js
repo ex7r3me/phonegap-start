@@ -20,7 +20,11 @@ Ext.define('MyApp.view.MainView', {
     requires: [
         'Ext.Button',
         'Ext.Panel',
-        'Ext.XTemplate'
+        'Ext.XTemplate',
+        'Ext.chart.PolarChart',
+        'Ext.chart.series.Pie',
+        'Ext.chart.interactions.Rotate',
+        'Ext.SegmentedButton'
     ],
 
     config: {
@@ -40,6 +44,52 @@ Ext.define('MyApp.view.MainView', {
                     '',
                     '<div>ID: {id}</div>',
                     '<div>Text: {text}</div>'
+                ]
+            },
+            {
+                xtype: 'polar',
+                height: 237,
+                colors: [
+                    '#115fa6',
+                    '#94ae0a',
+                    '#a61120',
+                    '#ff8809',
+                    '#ffd13e',
+                    '#a61187',
+                    '#24ad9a',
+                    '#7c7474',
+                    '#a66111'
+                ],
+                store: 'MyJsonStore',
+                series: [
+                    {
+                        type: 'pie',
+                        labelField: 'value',
+                        xField: 'value'
+                    }
+                ],
+                interactions: [
+                    {
+                        type: 'rotate'
+                    }
+                ]
+            },
+            {
+                xtype: 'segmentedbutton',
+                layout: {
+                    type: 'hbox',
+                    align: 'center'
+                },
+                items: [
+                    {
+                        xtype: 'button',
+                        text: 'Yes '
+                    },
+                    {
+                        xtype: 'button',
+                        iconAlign: 'center',
+                        text: 'No'
+                    }
                 ]
             }
         ]

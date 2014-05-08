@@ -23,6 +23,9 @@ Ext.application({
     models: [
         'MyModel'
     ],
+    stores: [
+        'MyJsonStore'
+    ],
     views: [
         'MainView'
     ],

@@ -1,0 +1,69 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            " [\r",
+            "    {label: 'Great', value: 5},\r",
+            "    {label: 'Above Average', value: 4},\r",
+            "    {label: 'Average', value: 3},\r",
+            "    {label: 'Below Average', value: 2},\r",
+            "    {label: 'Poor', value: 1},\r",
+            "  ]"
+        ],
+        "designer|userClassName": "MyJsonStore",
+        "storeId": "MyJsonStore"
+    },
+    "designerId": "328d55f1-9c18-458b-8adb-8dd211bd443a",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "19f29b09-63fd-47e8-8926-9679e6bf7828",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "afcc86ba-b17c-4459-8b80-11a2957eb3ce"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "label"
+            },
+            "designerId": "32bef281-12ad-499d-9900-2468c581650e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value",
+                "type": "int"
+            },
+            "designerId": "968f29d8-95a1-44ae-88e7-cbe0aca88a55"
+        }
+    ]
+}

@@ -13,6 +13,9 @@
             "MyModel"
         ],
         "name": "MyApp",
+        "stores": [
+            "MyJsonStore"
+        ],
         "views": [
             "MainView"
         ]

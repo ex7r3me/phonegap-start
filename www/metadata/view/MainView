@@ -59,6 +59,88 @@
                     "designerId": "4d07d1ea-e5d4-4740-8d4e-17a3a0f8c678"
                 }
             ]
+        },
+        {
+            "type": "Ext.chart.PolarChart",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "colors": [
+                    "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                ],
+                "height": 237,
+                "store": "MyJsonStore"
+            },
+            "designerId": "f3623619-47b1-4afb-9629-93f9cedcbc7a",
+            "isBuiltIn": true,
+            "iconCls": "icon-pie-chart",
+            "autoName": "MyPieChart",
+            "cn": [
+                {
+                    "type": "Ext.chart.series.Pie",
+                    "reference": {
+                        "name": "series",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "labelField": "value",
+                        "xField": "value"
+                    },
+                    "designerId": "0aaf089b-d8ba-4043-a2b5-443c767a3ec1"
+                },
+                {
+                    "type": "Ext.chart.interactions.Rotate",
+                    "reference": {
+                        "name": "interactions",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "107fac2d-17f4-4cfa-9c08-9ea8680ea95a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.SegmentedButton",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center"
+            },
+            "designerId": "11e18958-b6d7-48a1-96ab-65a555b808d8",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Yes "
+                    },
+                    "designerId": "427baa93-a6a2-447c-b389-4f31e986deae"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "center",
+                        "text": "No"
+                    },
+                    "designerId": "c532dbfd-5679-4dec-9c08-799abe07d9b5"
+                }
+            ]
         }
     ]
 }
