@@ -23,8 +23,7 @@ Ext.define('MyApp.view.MainView', {
         'Ext.XTemplate',
         'Ext.chart.PolarChart',
         'Ext.chart.series.Pie',
-        'Ext.chart.interactions.Rotate',
-        'Ext.SegmentedButton'
+        'Ext.chart.interactions.Rotate'
     ],
 
     config: {
@@ -34,7 +33,7 @@ Ext.define('MyApp.view.MainView', {
             {
                 xtype: 'button',
                 itemId: 'runButton',
-                text: 'Run Action'
+                text: 'Refresh Result'
             },
             {
                 xtype: 'panel',
@@ -49,6 +48,7 @@ Ext.define('MyApp.view.MainView', {
             {
                 xtype: 'polar',
                 height: 237,
+                itemId: 'primary-chart',
                 colors: [
                     '#115fa6',
                     '#94ae0a',
@@ -75,22 +75,14 @@ Ext.define('MyApp.view.MainView', {
                 ]
             },
             {
-                xtype: 'segmentedbutton',
-                layout: {
-                    type: 'hbox',
-                    align: 'center'
-                },
-                items: [
-                    {
-                        xtype: 'button',
-                        text: 'Yes '
-                    },
-                    {
-                        xtype: 'button',
-                        iconAlign: 'center',
-                        text: 'No'
-                    }
-                ]
+                xtype: 'button',
+                itemId: 'mybutton3',
+                text: 'Yes'
+            },
+            {
+                xtype: 'button',
+                itemId: 'mybutton4',
+                text: 'No'
             }
         ]
     }

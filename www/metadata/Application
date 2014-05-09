@@ -10,7 +10,8 @@
             "MyController"
         ],
         "models": [
-            "MyModel"
+            "MyModel",
+            "MyModel1"
         ],
         "name": "MyApp",
         "stores": [

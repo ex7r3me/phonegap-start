@@ -24,7 +24,7 @@
             "userConfig": {
                 "designer|createAlias": null,
                 "itemId": "runButton",
-                "text": "Run Action"
+                "text": "Refresh Result"
             },
             "designerId": "39c29017-68d4-4714-affa-380bebf72b19"
         },
@@ -72,6 +72,7 @@
                     "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
                 ],
                 "height": 237,
+                "itemId": "primary-chart",
                 "store": "MyJsonStore"
             },
             "designerId": "f3623619-47b1-4afb-9629-93f9cedcbc7a",
@@ -104,43 +105,30 @@
             ]
         },
         {
-            "type": "Ext.SegmentedButton",
+            "type": "Ext.Button",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "container|align": "center"
+                "itemId": "mybutton3",
+                "text": "Yes"
             },
-            "designerId": "11e18958-b6d7-48a1-96ab-65a555b808d8",
-            "cn": [
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "text": "Yes "
-                    },
-                    "designerId": "427baa93-a6a2-447c-b389-4f31e986deae"
-                },
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconAlign": "center",
-                        "text": "No"
-                    },
-                    "designerId": "c532dbfd-5679-4dec-9c08-799abe07d9b5"
-                }
-            ]
+            "designerId": "05e9e955-cd5b-44f5-9033-1f7bbf9f33fa"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "mybutton4",
+                "text": "No"
+            },
+            "designerId": "f6f2d817-f633-4d47-8c6e-3393e3a40e8c"
         }
     ]
 }

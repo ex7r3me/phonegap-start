@@ -17,50 +17,18 @@ Ext.define('MyApp.store.MyJsonStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json',
-        'Ext.data.Field'
+        'MyApp.model.MyModel1',
+        'Ext.data.proxy.JsonP'
     ],
 
     config: {
-        data: [
-            {
-                label: 'Great',
-                value: 5
-            },
-            {
-                label: 'Above Average',
-                value: 4
-            },
-            {
-                label: 'Average',
-                value: 3
-            },
-            {
-                label: 'Below Average',
-                value: 2
-            },
-            {
-                label: 'Poor',
-                value: 1
-            },
-            
-        ],
+        autoLoad: true,
+        destroyRemovedRecords: false,
+        model: 'MyApp.model.MyModel1',
         storeId: 'MyJsonStore',
         proxy: {
-            type: 'ajax',
-            reader: {
-                type: 'json'
-            }
-        },
-        fields: [
-            {
-                name: 'label'
-            },
-            {
-                name: 'value',
-                type: 'int'
-            }
-        ]
+            type: 'jsonp',
+            url: 'http://captain-zero.tk/getd.php'
+        }
     }
 });

@@ -24,6 +24,7 @@
                 ],
                 "fn": "runAction",
                 "implHandler": [
+                    "this.loadPStore();\r",
                     "\r",
                     "// Create new model\r",
                     "var model = Ext.create('MyApp.model.MyModel', {\r",
@@ -32,7 +33,7 @@
                     "});\r",
                     "\r",
                     "// Bind model to view\r",
-                    "this.getDetailPanel().setRecord(model);\r",
+                    "//this.getDetailPanel().setRecord(model);\r",
                     "\r",
                     ""
                 ],
@@ -52,6 +53,98 @@
                 "selector": "mainview #detailPanel"
             },
             "designerId": "731c57b5-4ec1-49cd-aae9-3d20c2a95ce7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#mybutton3",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "Ext.data.JsonP.request({\r",
+                    "    url: \"http://captain-zero.tk/setd.php\",\r",
+                    "    params: {\r",
+                    "        value : 1\r",
+                    "    },\r",
+                    "    callbackKey: 'callback',\r",
+                    "    success: function(result, request) {\r",
+                    "        me.loadPStore();\r",
+                    "\r",
+                    "        \r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap"
+            },
+            "designerId": "6a62a6ae-762f-4cb2-af3f-07ba7025992d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#mybutton4",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap1",
+                "implHandler": [
+                    "var me = this;\r",
+                    "Ext.data.JsonP.request({\r",
+                    "    url: \"http://captain-zero.tk/setd.php\",\r",
+                    "    params: {\r",
+                    "        value : 0\r",
+                    "    },\r",
+                    "    callbackKey: 'callback',\r",
+                    "    callback: function (result) {\r",
+                    " me.loadPStore();\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap"
+            },
+            "designerId": "9122e8d2-91c9-4fe7-a026-af8e5c56cd87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "primarychart",
+                "selector": "polar#primary-chart"
+            },
+            "designerId": "b72ee707-f74e-4646-b92f-ad07477ed209"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadPStore",
+                "implHandler": [
+                    "\r",
+                    "pchart = this.getPrimarychart();\r",
+                    "var mstore = pchart.getStore();\r",
+                    "mstore.load();"
+                ]
+            },
+            "designerId": "1aaa6f33-ecb2-4c5d-a510-e9351f8ba62d"
         }
     ]
 }

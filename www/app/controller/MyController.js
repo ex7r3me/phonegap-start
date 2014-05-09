@@ -18,17 +18,25 @@ Ext.define('MyApp.controller.MyController', {
 
     config: {
         refs: {
-            detailPanel: 'mainview #detailPanel'
+            detailPanel: 'mainview #detailPanel',
+            primarychart: 'polar#primary-chart'
         },
 
         control: {
             "mainview #runButton": {
                 tap: 'runAction'
+            },
+            "button#mybutton3": {
+                tap: 'onButtonTap'
+            },
+            "button#mybutton4": {
+                tap: 'onButtonTap1'
             }
         }
     },
 
     runAction: function(target) {
+        this.loadPStore();
 
         // Create new model
         var model = Ext.create('MyApp.model.MyModel', {
@@ -37,9 +45,49 @@ Ext.define('MyApp.controller.MyController', {
         });
 
         // Bind model to view
-        this.getDetailPanel().setRecord(model);
+        //this.getDetailPanel().setRecord(model);
 
 
+    },
+
+    onButtonTap: function(button, e, eOpts) {
+        var me = this;
+        Ext.data.JsonP.request({
+            url: "http://captain-zero.tk/setd.php",
+            params: {
+                value : 1
+            },
+            callbackKey: 'callback',
+            success: function(result, request) {
+                me.loadPStore();
+
+
+            }
+        });
+    },
+
+    onButtonTap1: function(button, e, eOpts) {
+        var me = this;
+        Ext.data.JsonP.request({
+            url: "http://captain-zero.tk/setd.php",
+            params: {
+                value : 0
+            },
+            callbackKey: 'callback',
+            callback: function (result) {
+         me.loadPStore();
+
+
+
+            }
+        });
+    },
+
+    loadPStore: function() {
+
+        pchart = this.getPrimarychart();
+        var mstore = pchart.getStore();
+        mstore.load();
     }
 
 });
