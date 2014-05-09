@@ -2,7 +2,9 @@
     "name": "tapp",
     "settings": {
         "cmd": {
-            "license": "commercial"
+            "license": "gpl",
+            "cmdVersion": "4.0.2.67",
+            "frameworkVersion": "2.3.1.410"
         },
         "canvasControls": {
             "viewportSize": {
@@ -14,7 +16,15 @@
             "viewportOrientation": "portrait"
         },
         "urlPrefix": "",
-        "exportPath": ""
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "displayfield-ExtBox1-1334-inputEl": "Not Installed",
+        "sdkPath": ""
     },
     "xdsVersion": "3.0.4",
     "xdsBuild": 1386,

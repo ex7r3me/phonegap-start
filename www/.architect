@@ -49,6 +49,7 @@
         },
         "328d55f1-9c18-458b-8adb-8dd211bd443a": {
             "id": "328d55f1-9c18-458b-8adb-8dd211bd443a",
+            "expanded": false,
             "cn": [
                 {
                     "id": "19f29b09-63fd-47e8-8926-9679e6bf7828",
@@ -108,7 +109,7 @@
         "selectedInstance": "0aaf089b-d8ba-4043-a2b5-443c767a3ec1"
     },
     "codeState": {
-        "topInstance": "1ac43aed-5822-42ae-bb49-db141af6328f"
+        "topInstance": null
     },
     "editMode": "design",
     "userSettings": {
