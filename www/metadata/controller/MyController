@@ -26,7 +26,7 @@
                 "implHandler": [
                     "\r",
                     "// Create new model\r",
-                    "var model = Ext.create('model.mymodel', {\r",
+                    "var model = Ext.create('MyApp.model.MyModel', {\r",
                     "    id: 123,\r",
                     "    text: 'Hello World'\r",
                     "});\r",

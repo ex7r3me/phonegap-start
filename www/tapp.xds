@@ -2,9 +2,9 @@
     "name": "tapp",
     "settings": {
         "cmd": {
-            "license": "gpl",
-            "cmdVersion": "4.0.2.67",
-            "frameworkVersion": "2.3.1.410"
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
         },
         "canvasControls": {
             "viewportSize": {
@@ -46,7 +46,8 @@
             "ac49528a-95b9-40b4-b060-0b13705d5d73"
         ],
         "resource": [
-            "df645ce3-b253-4151-8547-881708989006"
+            "df645ce3-b253-4151-8547-881708989006",
+            "054d966f-4347-441b-84ed-e34272da5880"
         ],
         "app": [
             "application"

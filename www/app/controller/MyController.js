@@ -31,7 +31,7 @@ Ext.define('MyApp.controller.MyController', {
     runAction: function(target) {
 
         // Create new model
-        var model = Ext.create('model.mymodel', {
+        var model = Ext.create('MyApp.model.MyModel', {
             id: 123,
             text: 'Hello World'
         });
