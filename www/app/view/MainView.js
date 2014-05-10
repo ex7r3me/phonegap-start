@@ -18,32 +18,23 @@ Ext.define('MyApp.view.MainView', {
     alias: 'widget.mainview',
 
     requires: [
-        'Ext.Button',
-        'Ext.Panel',
-        'Ext.XTemplate',
+        'Ext.Label',
         'Ext.chart.PolarChart',
         'Ext.chart.series.Pie',
-        'Ext.chart.interactions.Rotate'
+        'Ext.chart.interactions.Rotate',
+        'Ext.Button',
+        'Ext.Panel',
+        'Ext.XTemplate'
     ],
 
     config: {
         itemId: 'mainView',
         padding: 10,
+        scrollable: true,
         items: [
             {
-                xtype: 'button',
-                itemId: 'runButton',
-                text: 'Refresh Result'
-            },
-            {
-                xtype: 'panel',
-                itemId: 'detailPanel',
-                padding: 10,
-                tpl: [
-                    '',
-                    '<div>ID: {id}</div>',
-                    '<div>Text: {text}</div>'
-                ]
+                xtype: 'label',
+                html: 'It\'s Yes or No , No Maybe !'
             },
             {
                 xtype: 'polar',
@@ -83,6 +74,21 @@ Ext.define('MyApp.view.MainView', {
                 xtype: 'button',
                 itemId: 'mybutton4',
                 text: 'No'
+            },
+            {
+                xtype: 'panel',
+                itemId: 'detailPanel',
+                padding: 10,
+                tpl: [
+                    '',
+                    '<div>ID: {id}</div>',
+                    '<div>Text: {text}</div>'
+                ]
+            },
+            {
+                xtype: 'button',
+                itemId: 'runButton',
+                text: 'Exit'
             }
         ]
     }
