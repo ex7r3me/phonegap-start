@@ -67,18 +67,7 @@
                 "fn": "onButtonTap",
                 "implHandler": [
                     "var me = this;\r",
-                    "Ext.data.JsonP.request({\r",
-                    "    url: \"http://captain-zero.tk/setd.php\",\r",
-                    "    params: {\r",
-                    "        value : 1\r",
-                    "    },\r",
-                    "    callbackKey: 'callback',\r",
-                    "    success: function(result, request) {\r",
-                    "        me.loadPStore();\r",
-                    "\r",
-                    "        \r",
-                    "    }\r",
-                    "});"
+                    "websocket.send('1');"
                 ],
                 "name": "tap"
             },
@@ -97,19 +86,7 @@
                 "fn": "onButtonTap1",
                 "implHandler": [
                     "var me = this;\r",
-                    "Ext.data.JsonP.request({\r",
-                    "    url: \"http://captain-zero.tk/setd.php\",\r",
-                    "    params: {\r",
-                    "        value : 0\r",
-                    "    },\r",
-                    "    callbackKey: 'callback',\r",
-                    "    callback: function (result) {\r",
-                    " me.loadPStore();\r",
-                    "\r",
-                    "\r",
-                    "\r",
-                    "    }\r",
-                    "});"
+                    "websocket.send('0');"
                 ],
                 "name": "tap"
             },
@@ -145,6 +122,42 @@
                 ]
             },
             "designerId": "1aaa6f33-ecb2-4c5d-a510-e9351f8ba62d"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "var me = this;\r",
+                    "websocket = Ext.create ('Ext.ux.WebSocket', {\r",
+                    "    url: 'ws://captain-zero.tk:8080' ,\r",
+                    "    listeners: {\r",
+                    "        open: function (ws) {\r",
+                    "            console.log ('The websocket is ready to use');\r",
+                    "            ws.send ('This is a simple text');\r",
+                    "        } ,\r",
+                    "        close: function (ws) {\r",
+                    "            console.log ('The websocket is closed!');\r",
+                    "        } ,\r",
+                    "        error: function (ws, error) {\r",
+                    "            Ext.Error.raise (error);\r",
+                    "        } ,\r",
+                    "        message: function (ws, message) {\r",
+                    "            me.getPrimarychart().getStore().setData(message);\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "e8a7ddcb-25ff-4191-9b3a-0f5554a57e3f"
         }
     ]
 }

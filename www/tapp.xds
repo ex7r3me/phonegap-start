@@ -24,7 +24,13 @@
         "genTimestamps": false,
         "cacheBust": false,
         "displayfield-ExtBox1-1334-inputEl": "Not Installed",
-        "sdkPath": ""
+        "sdkPath": "",
+        "displayfield-ExtBox1-1284-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1384-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1444-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1494-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1544-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1594-inputEl": "Not Installed"
     },
     "xdsVersion": "3.0.4",
     "xdsBuild": 1386,

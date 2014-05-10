@@ -15,11 +15,21 @@
 
 // @require @packageOverrides
 Ext.Loader.setConfig({
-
+    paths: {
+        'Ext.ux.WebSocket': './WebSocket.js',
+        'Ext.ux.WebSocketManager': './WebSocketManager.js',
+        'Ext.ux.data.proxy.WebSocket': 'WebSocketProxy.js'
+    }
 });
 
 
 Ext.application({
+
+    requires: [
+        'Ext.Loader',
+        'Ext.ux.WebSocket',
+        'Ext.ux.WebSocketManager'
+    ],
     models: [
         'MyModel',
         'MyModel1'

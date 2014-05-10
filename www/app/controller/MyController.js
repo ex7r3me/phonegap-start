@@ -52,35 +52,12 @@ Ext.define('MyApp.controller.MyController', {
 
     onButtonTap: function(button, e, eOpts) {
         var me = this;
-        Ext.data.JsonP.request({
-            url: "http://captain-zero.tk/setd.php",
-            params: {
-                value : 1
-            },
-            callbackKey: 'callback',
-            success: function(result, request) {
-                me.loadPStore();
-
-
-            }
-        });
+        websocket.send('1');
     },
 
     onButtonTap1: function(button, e, eOpts) {
         var me = this;
-        Ext.data.JsonP.request({
-            url: "http://captain-zero.tk/setd.php",
-            params: {
-                value : 0
-            },
-            callbackKey: 'callback',
-            callback: function (result) {
-         me.loadPStore();
-
-
-
-            }
-        });
+        websocket.send('0');
     },
 
     loadPStore: function() {
@@ -88,6 +65,28 @@ Ext.define('MyApp.controller.MyController', {
         pchart = this.getPrimarychart();
         var mstore = pchart.getStore();
         mstore.load();
+    },
+
+    init: function(application) {
+        var me = this;
+        websocket = Ext.create ('Ext.ux.WebSocket', {
+            url: 'ws://captain-zero.tk:8080' ,
+            listeners: {
+                open: function (ws) {
+                    console.log ('The websocket is ready to use');
+                    ws.send ('This is a simple text');
+                } ,
+                close: function (ws) {
+                    console.log ('The websocket is closed!');
+                } ,
+                error: function (ws, error) {
+                    Ext.Error.raise (error);
+                } ,
+                message: function (ws, message) {
+                    me.getPrimarychart().getStore().setData(message);
+                }
+            }
+        });
     }
 
 });
