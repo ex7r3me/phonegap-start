@@ -19,7 +19,9 @@ Ext.define('MyApp.controller.MyController', {
     config: {
         refs: {
             detailPanel: 'mainview #detailPanel',
-            primarychart: 'polar#primary-chart'
+            primarychart: 'polar#primary-chart',
+            requestdelay: 'label#request-delay',
+            runButton: 'button#runButton'
         },
 
         control: {
@@ -36,13 +38,7 @@ Ext.define('MyApp.controller.MyController', {
     },
 
     runAction: function(target) {
-        this.loadPStore();
-
-        // Create new model
-        var model = Ext.create('MyApp.model.MyModel', {
-            id: 123,
-            text: 'Hello World'
-        });
+        navigator.app.exitApp();
 
         // Bind model to view
         //this.getDetailPanel().setRecord(model);
@@ -52,11 +48,13 @@ Ext.define('MyApp.controller.MyController', {
 
     onButtonTap: function(button, e, eOpts) {
         var me = this;
+        me.start = new Date().getTime();
         websocket.send('1');
     },
 
     onButtonTap1: function(button, e, eOpts) {
         var me = this;
+        me.start = new Date().getTime();
         websocket.send('0');
     },
 
@@ -74,15 +72,20 @@ Ext.define('MyApp.controller.MyController', {
             listeners: {
                 open: function (ws) {
                     console.log ('The websocket is ready to use');
+                    me.getRequestdelay().setHtml('Connected!');
                     ws.send ('This is a simple text');
                 } ,
                 close: function (ws) {
-                    console.log ('The websocket is closed!');
+                    console.log ('Disconnected :(');
                 } ,
                 error: function (ws, error) {
                     Ext.Error.raise (error);
                 } ,
                 message: function (ws, message) {
+                    var end = new Date().getTime();
+                    var time = end - me.start;
+                    console.log(time);
+                    me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');
                     me.getPrimarychart().getStore().setData(message);
                 }
             }

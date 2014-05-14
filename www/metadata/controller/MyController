@@ -24,13 +24,7 @@
                 ],
                 "fn": "runAction",
                 "implHandler": [
-                    "this.loadPStore();\r",
-                    "\r",
-                    "// Create new model\r",
-                    "var model = Ext.create('MyApp.model.MyModel', {\r",
-                    "    id: 123,\r",
-                    "    text: 'Hello World'\r",
-                    "});\r",
+                    "navigator.app.exitApp();\r",
                     "\r",
                     "// Bind model to view\r",
                     "//this.getDetailPanel().setRecord(model);\r",
@@ -67,6 +61,7 @@
                 "fn": "onButtonTap",
                 "implHandler": [
                     "var me = this;\r",
+                    "me.start = new Date().getTime();\r",
                     "websocket.send('1');"
                 ],
                 "name": "tap"
@@ -86,6 +81,7 @@
                 "fn": "onButtonTap1",
                 "implHandler": [
                     "var me = this;\r",
+                    "me.start = new Date().getTime();\r",
                     "websocket.send('0');"
                 ],
                 "name": "tap"
@@ -142,15 +138,20 @@
                     "    listeners: {\r",
                     "        open: function (ws) {\r",
                     "            console.log ('The websocket is ready to use');\r",
+                    "            me.getRequestdelay().setHtml('Connected!');\r",
                     "            ws.send ('This is a simple text');\r",
                     "        } ,\r",
                     "        close: function (ws) {\r",
-                    "            console.log ('The websocket is closed!');\r",
+                    "            console.log ('Disconnected :(');\r",
                     "        } ,\r",
                     "        error: function (ws, error) {\r",
                     "            Ext.Error.raise (error);\r",
                     "        } ,\r",
                     "        message: function (ws, message) {\r",
+                    "            var end = new Date().getTime();\r",
+                    "            var time = end - me.start;\r",
+                    "            console.log(time);\r",
+                    "            me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');\r",
                     "            me.getPrimarychart().getStore().setData(message);\r",
                     "        }\r",
                     "    }\r",
@@ -158,6 +159,32 @@
                 ]
             },
             "designerId": "e8a7ddcb-25ff-4191-9b3a-0f5554a57e3f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "requestdelay",
+                "selector": "label#request-delay"
+            },
+            "designerId": "138af7ea-8fb4-47fd-9200-f41f01f85838"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "runButton",
+                "selector": "button#runButton"
+            },
+            "designerId": "cf145ff0-96d0-4da5-8f44-36484626d13c"
         }
     ]
 }

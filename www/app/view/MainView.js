@@ -34,7 +34,8 @@ Ext.define('MyApp.view.MainView', {
         items: [
             {
                 xtype: 'label',
-                html: 'It\'s Yes or No , No Maybe !'
+                html: 'It\'s a testing app for Websocket . just press yes or no and see the result',
+                itemId: 'title'
             },
             {
                 xtype: 'polar',
@@ -64,6 +65,11 @@ Ext.define('MyApp.view.MainView', {
                         type: 'rotate'
                     }
                 ]
+            },
+            {
+                xtype: 'label',
+                html: 'Connecting...',
+                itemId: 'request-delay'
             },
             {
                 xtype: 'button',

@@ -24,7 +24,8 @@
             "codeClass": null,
             "userConfig": {
                 "docked": null,
-                "html": "It's Yes or No , No Maybe !"
+                "html": "It's a testing app for Websocket . just press yes or no and see the result",
+                "itemId": "title"
             },
             "designerId": "08ca9a70-c350-473f-8f15-1576f17d72a0"
         },
@@ -71,6 +72,19 @@
                     "designerId": "107fac2d-17f4-4cfa-9c08-9ea8680ea95a"
                 }
             ]
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": "Connecting...",
+                "itemId": "request-delay"
+            },
+            "designerId": "c4415b19-6dc1-4fff-8e64-e1223ed6c839"
         },
         {
             "type": "Ext.Button",
