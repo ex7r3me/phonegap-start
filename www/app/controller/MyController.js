@@ -37,9 +37,6 @@ Ext.define('MyApp.controller.MyController', {
             "button#mybutton4": {
                 tap: 'onButtonTap1'
             },
-            "button#create-question": {
-                tap: 'onCreateQuestion'
-            },
             "button#submit-question": {
                 tap: 'onSubmitQuestion'
             }
@@ -67,14 +64,10 @@ Ext.define('MyApp.controller.MyController', {
         websocket.send('0');
     },
 
-    onCreateQuestion: function(button, e, eOpts) {
-
-    },
-
     onSubmitQuestion: function(button, e, eOpts) {
         var qText = this.getQuestiontext().getValue();
-        qsocket.send(qText);
-        qsocket.send("101");
+        websocket.send(qText);
+        websocket.send("101");
     },
 
     loadPStore: function() {
@@ -92,7 +85,7 @@ Ext.define('MyApp.controller.MyController', {
                 open: function (ws) {
                     console.log ('The websocket is ready to use');
                     me.getRequestdelay().setHtml('Connected!');
-                    //ws.send ('This is a simple text');
+                      ws.send ('101');
                 } ,
                 close: function (ws) {
                      me.getRequestdelay().setHtml('Disconnected :(');
@@ -101,40 +94,21 @@ Ext.define('MyApp.controller.MyController', {
                     Ext.Error.raise (error);
                 } ,
                 message: function (ws, message) {
-                    if (message.question == undefined){
+                    if (message.question === undefined){
                     var end = new Date().getTime();
                     var time = end - me.start;
                     console.log(time);
                     me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');
                     me.getPrimarychart().getStore().setData(message);
                     }
-                }
-            }
-
-        });
-        qsocket = Ext.create ('Ext.ux.WebSocket', {
-            url: 'ws://130.185.74.60:8080' ,
-            listeners: {
-                open: function (ws) {
-                    ws.send ('101');
-                    me.getRequestdelay().setHtml('Question Connected!');
-
-                } ,
-                close: function (ws) {
-                     me.getRequestdelay().setHtml('Question Disconnected :(');
-                } ,
-                error: function (ws, error) {
-                    Ext.Error.raise (error);
-                } ,
-                message: function (ws, message) {
-                    if (message.question){
-                    jiji = message;
-                   me.getTitle().setHtml(message.question);
+                     else if (message.question){
+                       me.getTitle().setHtml(message.question);
                     }
                 }
             }
 
         });
+
     }
 
 });

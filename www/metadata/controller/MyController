@@ -139,7 +139,7 @@
                     "        open: function (ws) {\r",
                     "            console.log ('The websocket is ready to use');\r",
                     "            me.getRequestdelay().setHtml('Connected!');\r",
-                    "            //ws.send ('This is a simple text');\r",
+                    "              ws.send ('101');\r",
                     "        } ,\r",
                     "        close: function (ws) {\r",
                     "             me.getRequestdelay().setHtml('Disconnected :(');\r",
@@ -148,40 +148,21 @@
                     "            Ext.Error.raise (error);\r",
                     "        } ,\r",
                     "        message: function (ws, message) {\r",
-                    "            if (message.question == undefined){\r",
+                    "            if (message.question === undefined){\r",
                     "            var end = new Date().getTime();\r",
                     "            var time = end - me.start;\r",
                     "            console.log(time);\r",
                     "            me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');\r",
                     "            me.getPrimarychart().getStore().setData(message);\r",
                     "            }\r",
-                    "        }\r",
-                    "    }\r",
-                    "\r",
-                    "});\r",
-                    "qsocket = Ext.create ('Ext.ux.WebSocket', {\r",
-                    "    url: 'ws://130.185.74.60:8080' ,\r",
-                    "    listeners: {\r",
-                    "        open: function (ws) {\r",
-                    "            ws.send ('101');\r",
-                    "            me.getRequestdelay().setHtml('Question Connected!');\r",
-                    "            \r",
-                    "        } ,\r",
-                    "        close: function (ws) {\r",
-                    "             me.getRequestdelay().setHtml('Question Disconnected :(');\r",
-                    "        } ,\r",
-                    "        error: function (ws, error) {\r",
-                    "            Ext.Error.raise (error);\r",
-                    "        } ,\r",
-                    "        message: function (ws, message) {\r",
-                    "            if (message.question){\r",
-                    "            jiji = message;\r",
-                    "           me.getTitle().setHtml(message.question);\r",
+                    "             else if (message.question){\r",
+                    "               me.getTitle().setHtml(message.question);\r",
                     "            }\r",
                     "        }\r",
                     "    }\r",
                     "\r",
-                    "});"
+                    "});\r",
+                    ""
                 ]
             },
             "designerId": "e8a7ddcb-25ff-4191-9b3a-0f5554a57e3f"
@@ -213,24 +194,6 @@
             "designerId": "cf145ff0-96d0-4da5-8f44-36484626d13c"
         },
         {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "button#create-question",
-                "designer|targetType": "Ext.Button",
-                "fn": "onCreateQuestion",
-                "implHandler": [
-                    ""
-                ],
-                "name": "tap"
-            },
-            "designerId": "22fd60b0-0d4d-45c1-a058-2fec94688540"
-        },
-        {
             "type": "controllerref",
             "reference": {
                 "name": "items",
@@ -256,8 +219,8 @@
                 "fn": "onSubmitQuestion",
                 "implHandler": [
                     "var qText = this.getQuestiontext().getValue();\r",
-                    "qsocket.send(qText);\r",
-                    "qsocket.send(\"101\");"
+                    "websocket.send(qText);\r",
+                    "websocket.send(\"101\");"
                 ],
                 "name": "tap"
             },
