@@ -87,7 +87,7 @@ Ext.define('MyApp.controller.MyController', {
     init: function(application) {
         var me = this;
         websocket = Ext.create ('Ext.ux.WebSocket', {
-            url: 'ws://captain-zero.tk:8080' ,
+            url: 'ws://130.185.74.60:8080' ,
             listeners: {
                 open: function (ws) {
                     console.log ('The websocket is ready to use');
@@ -95,7 +95,7 @@ Ext.define('MyApp.controller.MyController', {
                     //ws.send ('This is a simple text');
                 } ,
                 close: function (ws) {
-                    console.log ('Disconnected :(');
+                     me.getRequestdelay().setHtml('Disconnected :(');
                 } ,
                 error: function (ws, error) {
                     Ext.Error.raise (error);
@@ -113,15 +113,15 @@ Ext.define('MyApp.controller.MyController', {
 
         });
         qsocket = Ext.create ('Ext.ux.WebSocket', {
-            url: 'ws://captain-zero.tk:8080' ,
+            url: 'ws://130.185.74.60:8080' ,
             listeners: {
                 open: function (ws) {
-                    console.log ('The Question is Connected');
-                    me.getRequestdelay().setHtml('Connected!');
                     ws.send ('101');
+                    me.getRequestdelay().setHtml('Question Connected!');
+
                 } ,
                 close: function (ws) {
-                    console.log ('Disconnected :(');
+                     me.getRequestdelay().setHtml('Question Disconnected :(');
                 } ,
                 error: function (ws, error) {
                     Ext.Error.raise (error);
