@@ -80,7 +80,7 @@ Ext.define('MyApp.controller.MyController', {
     init: function(application) {
         var me = this;
         websocket = Ext.create ('Ext.ux.WebSocket', {
-            url: 'ws://130.185.74.60:8080' ,
+            url: 'ws://captain-zero.tk:8080' ,
             listeners: {
                 open: function (ws) {
                     console.log ('The websocket is ready to use');
