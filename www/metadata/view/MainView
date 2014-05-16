@@ -1,5 +1,5 @@
 {
-    "type": "Ext.Panel",
+    "type": "Ext.tab.Panel",
     "reference": {
         "name": "items",
         "type": "array"
@@ -7,156 +7,272 @@
     "codeClass": null,
     "userConfig": {
         "designer|initialView": true,
-        "designer|userAlias": "mainview",
-        "designer|userClassName": "MainView",
-        "itemId": "mainView",
-        "padding": 10,
-        "scrollable": true
+        "designer|userClassName": "MainView"
     },
-    "designerId": "1ac43aed-5822-42ae-bb49-db141af6328f",
+    "designerId": "e25880ac-2033-43a4-b89d-a30fd6292a40",
     "cn": [
         {
-            "type": "Ext.Label",
+            "type": "Ext.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "docked": null,
-                "html": "It's a testing app for Websocket . just press yes or no and see the result",
-                "itemId": "title"
+                "layout": "fit",
+                "title": "Get in !"
             },
-            "designerId": "08ca9a70-c350-473f-8f15-1576f17d72a0"
-        },
-        {
-            "type": "Ext.chart.PolarChart",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "colors": [
-                    "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
-                ],
-                "height": 237,
-                "itemId": "primary-chart",
-                "store": "MyJsonStore"
-            },
-            "designerId": "f3623619-47b1-4afb-9629-93f9cedcbc7a",
-            "isBuiltIn": true,
-            "iconCls": "icon-pie-chart",
-            "autoName": "MyPieChart",
+            "designerId": "4be6a79f-ea50-434b-8662-70cd6f13bc20",
             "cn": [
                 {
-                    "type": "Ext.chart.series.Pie",
+                    "type": "Ext.Panel",
                     "reference": {
-                        "name": "series",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "labelField": "value",
-                        "xField": "value"
+                        "itemId": "mainView",
+                        "padding": 10,
+                        "scrollable": true
                     },
-                    "designerId": "0aaf089b-d8ba-4043-a2b5-443c767a3ec1"
-                },
+                    "designerId": "1ac43aed-5822-42ae-bb49-db141af6328f",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "html": "It's a testing app for Websocket . just press yes or no and see the result",
+                                "itemId": "title"
+                            },
+                            "designerId": "08ca9a70-c350-473f-8f15-1576f17d72a0"
+                        },
+                        {
+                            "type": "Ext.chart.PolarChart",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "colors": [
+                                    "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                                ],
+                                "height": 237,
+                                "itemId": "primary-chart",
+                                "store": "MyJsonStore"
+                            },
+                            "designerId": "f3623619-47b1-4afb-9629-93f9cedcbc7a",
+                            "isBuiltIn": true,
+                            "iconCls": "icon-pie-chart",
+                            "autoName": "MyPieChart",
+                            "cn": [
+                                {
+                                    "type": "Ext.chart.series.Pie",
+                                    "reference": {
+                                        "name": "series",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "labelField": "value",
+                                        "xField": "value"
+                                    },
+                                    "designerId": "0aaf089b-d8ba-4043-a2b5-443c767a3ec1"
+                                },
+                                {
+                                    "type": "Ext.chart.interactions.Rotate",
+                                    "reference": {
+                                        "name": "interactions",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "107fac2d-17f4-4cfa-9c08-9ea8680ea95a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": "Connecting...",
+                                "itemId": "request-delay"
+                            },
+                            "designerId": "c4415b19-6dc1-4fff-8e64-e1223ed6c839"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "center",
+                                "container|pack": "center",
+                                "layout": "hbox"
+                            },
+                            "designerId": "1843a0e2-d336-4858-9972-019a017136d4",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action",
+                                        "itemId": "mybutton3",
+                                        "text": "Yes",
+                                        "ui": "action",
+                                        "width": "50%"
+                                    },
+                                    "designerId": "05e9e955-cd5b-44f5-9033-1f7bbf9f33fa"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "confirm",
+                                        "itemId": "mybutton4",
+                                        "text": "No",
+                                        "ui": "confirm",
+                                        "width": "50%"
+                                    },
+                                    "designerId": "f6f2d817-f633-4d47-8c6e-3393e3a40e8c"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "detailPanel",
+                                "padding": 10
+                            },
+                            "designerId": "525ac364-3dbb-4f61-acef-ebba1b9c9fc3",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "tpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "tpl",
+                                        "implHandler": [
+                                            "\r",
+                                            "<div>ID: {id}</div>\r",
+                                            "<div>Text: {text}</div>"
+                                        ]
+                                    },
+                                    "designerId": "4d07d1ea-e5d4-4740-8d4e-17a3a0f8c678"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|createAlias": null,
+                                "designer|uiInterfaceName": "decline",
+                                "itemId": "runButton",
+                                "text": "Exit",
+                                "ui": "decline"
+                            },
+                            "designerId": "39c29017-68d4-4714-affa-380bebf72b19"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Change Question"
+            },
+            "designerId": "417a6aa8-7247-4f59-8188-1234a181ad79",
+            "cn": [
                 {
-                    "type": "Ext.chart.interactions.Rotate",
+                    "type": "Ext.Panel",
                     "reference": {
-                        "name": "interactions",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
-                    "designerId": "107fac2d-17f4-4cfa-9c08-9ea8680ea95a"
+                    "designerId": "0b85bc0d-e555-4742-b817-f7c19dc253cb",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": "After Submitting Question the Chart Will Be Reset"
+                            },
+                            "designerId": "29627e8f-4786-4765-a04d-13a3ac416886"
+                        },
+                        {
+                            "type": "Ext.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "question-text",
+                                "label": "Question Text"
+                            },
+                            "designerId": "0ab86d06-5ad0-4986-9628-e8cf7998ab98"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "forward",
+                                "itemId": "submit-question",
+                                "text": "Submit",
+                                "ui": "forward"
+                            },
+                            "designerId": "512bc48f-8b30-44d3-8a66-12ffa8c051a3"
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            "type": "Ext.Label",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "html": "Connecting...",
-                "itemId": "request-delay"
-            },
-            "designerId": "c4415b19-6dc1-4fff-8e64-e1223ed6c839"
-        },
-        {
-            "type": "Ext.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "itemId": "mybutton3",
-                "text": "Yes"
-            },
-            "designerId": "05e9e955-cd5b-44f5-9033-1f7bbf9f33fa"
-        },
-        {
-            "type": "Ext.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "itemId": "mybutton4",
-                "text": "No"
-            },
-            "designerId": "f6f2d817-f633-4d47-8c6e-3393e3a40e8c"
-        },
-        {
-            "type": "Ext.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "itemId": "detailPanel",
-                "padding": 10
-            },
-            "designerId": "525ac364-3dbb-4f61-acef-ebba1b9c9fc3",
-            "cn": [
-                {
-                    "type": "Ext.XTemplate",
-                    "reference": {
-                        "name": "tpl",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|displayName": "tpl",
-                        "implHandler": [
-                            "\r",
-                            "<div>ID: {id}</div>\r",
-                            "<div>Text: {text}</div>"
-                        ]
-                    },
-                    "designerId": "4d07d1ea-e5d4-4740-8d4e-17a3a0f8c678"
-                }
-            ]
-        },
-        {
-            "type": "Ext.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|createAlias": null,
-                "itemId": "runButton",
-                "text": "Exit"
-            },
-            "designerId": "39c29017-68d4-4714-affa-380bebf72b19"
         }
     ]
 }

@@ -14,87 +14,140 @@
  */
 
 Ext.define('MyApp.view.MainView', {
-    extend: 'Ext.Panel',
-    alias: 'widget.mainview',
+    extend: 'Ext.tab.Panel',
 
     requires: [
+        'Ext.Panel',
         'Ext.Label',
         'Ext.chart.PolarChart',
         'Ext.chart.series.Pie',
         'Ext.chart.interactions.Rotate',
         'Ext.Button',
-        'Ext.Panel',
-        'Ext.XTemplate'
+        'Ext.XTemplate',
+        'Ext.field.TextArea'
     ],
 
     config: {
-        itemId: 'mainView',
-        padding: 10,
-        scrollable: true,
         items: [
             {
-                xtype: 'label',
-                html: 'It\'s a testing app for Websocket . just press yes or no and see the result',
-                itemId: 'title'
-            },
-            {
-                xtype: 'polar',
-                height: 237,
-                itemId: 'primary-chart',
-                colors: [
-                    '#115fa6',
-                    '#94ae0a',
-                    '#a61120',
-                    '#ff8809',
-                    '#ffd13e',
-                    '#a61187',
-                    '#24ad9a',
-                    '#7c7474',
-                    '#a66111'
-                ],
-                store: 'MyJsonStore',
-                series: [
+                xtype: 'container',
+                title: 'Get in !',
+                layout: 'fit',
+                items: [
                     {
-                        type: 'pie',
-                        labelField: 'value',
-                        xField: 'value'
-                    }
-                ],
-                interactions: [
-                    {
-                        type: 'rotate'
+                        xtype: 'panel',
+                        itemId: 'mainView',
+                        padding: 10,
+                        scrollable: true,
+                        items: [
+                            {
+                                xtype: 'label',
+                                html: 'It\'s a testing app for Websocket . just press yes or no and see the result',
+                                itemId: 'title'
+                            },
+                            {
+                                xtype: 'polar',
+                                height: 237,
+                                itemId: 'primary-chart',
+                                colors: [
+                                    '#115fa6',
+                                    '#94ae0a',
+                                    '#a61120',
+                                    '#ff8809',
+                                    '#ffd13e',
+                                    '#a61187',
+                                    '#24ad9a',
+                                    '#7c7474',
+                                    '#a66111'
+                                ],
+                                store: 'MyJsonStore',
+                                series: [
+                                    {
+                                        type: 'pie',
+                                        labelField: 'value',
+                                        xField: 'value'
+                                    }
+                                ],
+                                interactions: [
+                                    {
+                                        type: 'rotate'
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'label',
+                                html: 'Connecting...',
+                                itemId: 'request-delay'
+                            },
+                            {
+                                xtype: 'container',
+                                layout: {
+                                    type: 'hbox',
+                                    align: 'center',
+                                    pack: 'center'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'button',
+                                        itemId: 'mybutton3',
+                                        ui: 'action',
+                                        width: '50%',
+                                        text: 'Yes'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        itemId: 'mybutton4',
+                                        ui: 'confirm',
+                                        width: '50%',
+                                        text: 'No'
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'panel',
+                                itemId: 'detailPanel',
+                                padding: 10,
+                                tpl: [
+                                    '',
+                                    '<div>ID: {id}</div>',
+                                    '<div>Text: {text}</div>'
+                                ]
+                            },
+                            {
+                                xtype: 'button',
+                                itemId: 'runButton',
+                                ui: 'decline',
+                                text: 'Exit'
+                            }
+                        ]
                     }
                 ]
             },
             {
-                xtype: 'label',
-                html: 'Connecting...',
-                itemId: 'request-delay'
-            },
-            {
-                xtype: 'button',
-                itemId: 'mybutton3',
-                text: 'Yes'
-            },
-            {
-                xtype: 'button',
-                itemId: 'mybutton4',
-                text: 'No'
-            },
-            {
-                xtype: 'panel',
-                itemId: 'detailPanel',
-                padding: 10,
-                tpl: [
-                    '',
-                    '<div>ID: {id}</div>',
-                    '<div>Text: {text}</div>'
+                xtype: 'container',
+                title: 'Change Question',
+                items: [
+                    {
+                        xtype: 'panel',
+                        items: [
+                            {
+                                xtype: 'label',
+                                html: 'After Submitting Question the Chart Will Be Reset'
+                            },
+                            {
+                                xtype: 'textareafield',
+                                itemId: 'question-text',
+                                label: 'Question Text'
+                            },
+                            {
+                                xtype: 'button',
+                                itemId: 'submit-question',
+                                ui: 'forward',
+                                text: 'Submit'
+                            }
+                        ]
+                    }
                 ]
-            },
-            {
-                xtype: 'button',
-                itemId: 'runButton',
-                text: 'Exit'
             }
         ]
     }

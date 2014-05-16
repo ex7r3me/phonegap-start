@@ -139,7 +139,7 @@
                     "        open: function (ws) {\r",
                     "            console.log ('The websocket is ready to use');\r",
                     "            me.getRequestdelay().setHtml('Connected!');\r",
-                    "            ws.send ('This is a simple text');\r",
+                    "            //ws.send ('This is a simple text');\r",
                     "        } ,\r",
                     "        close: function (ws) {\r",
                     "            console.log ('Disconnected :(');\r",
@@ -148,13 +148,39 @@
                     "            Ext.Error.raise (error);\r",
                     "        } ,\r",
                     "        message: function (ws, message) {\r",
+                    "            if (message.question == undefined){\r",
                     "            var end = new Date().getTime();\r",
                     "            var time = end - me.start;\r",
                     "            console.log(time);\r",
                     "            me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');\r",
                     "            me.getPrimarychart().getStore().setData(message);\r",
+                    "            }\r",
                     "        }\r",
                     "    }\r",
+                    "    \r",
+                    "});\r",
+                    "qsocket = Ext.create ('Ext.ux.WebSocket', {\r",
+                    "    url: 'ws://captain-zero.tk:8080' ,\r",
+                    "    listeners: {\r",
+                    "        open: function (ws) {\r",
+                    "            console.log ('The Question is Connected');\r",
+                    "            me.getRequestdelay().setHtml('Connected!');\r",
+                    "            ws.send ('101');\r",
+                    "        } ,\r",
+                    "        close: function (ws) {\r",
+                    "            console.log ('Disconnected :(');\r",
+                    "        } ,\r",
+                    "        error: function (ws, error) {\r",
+                    "            Ext.Error.raise (error);\r",
+                    "        } ,\r",
+                    "        message: function (ws, message) {\r",
+                    "            if (message.question){\r",
+                    "            jiji = message;\r",
+                    "           me.getTitle().setHtml(message.question);\r",
+                    "            }\r",
+                    "        }\r",
+                    "    }\r",
+                    "    \r",
                     "});"
                 ]
             },
@@ -185,6 +211,83 @@
                 "selector": "button#runButton"
             },
             "designerId": "cf145ff0-96d0-4da5-8f44-36484626d13c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#create-question",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCreateQuestion",
+                "implHandler": [
+                    ""
+                ],
+                "name": "tap"
+            },
+            "designerId": "22fd60b0-0d4d-45c1-a058-2fec94688540"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "requestdelay2",
+                "selector": "label#request-delay"
+            },
+            "designerId": "8c1f20dc-ed46-447a-9ab2-cc43946ecb3b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#submit-question",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSubmitQuestion",
+                "implHandler": [
+                    "var qText = this.getQuestiontext().getValue();\r",
+                    "qsocket.send(qText);\r",
+                    "qsocket.send(\"101\");"
+                ],
+                "name": "tap"
+            },
+            "designerId": "1674eec3-4246-46c3-af48-4e6d87c62af3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "title",
+                "selector": "label#title"
+            },
+            "designerId": "20b532ad-47da-4a30-9519-6017567cddc4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "questiontext",
+                "selector": "textareafield#question-text"
+            },
+            "designerId": "9fa7d733-5551-4a20-bd5f-ee4927315d63"
         }
     ]
 }

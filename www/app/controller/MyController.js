@@ -21,7 +21,10 @@ Ext.define('MyApp.controller.MyController', {
             detailPanel: 'mainview #detailPanel',
             primarychart: 'polar#primary-chart',
             requestdelay: 'label#request-delay',
-            runButton: 'button#runButton'
+            runButton: 'button#runButton',
+            requestdelay2: 'label#request-delay',
+            title: 'label#title',
+            questiontext: 'textareafield#question-text'
         },
 
         control: {
@@ -33,6 +36,12 @@ Ext.define('MyApp.controller.MyController', {
             },
             "button#mybutton4": {
                 tap: 'onButtonTap1'
+            },
+            "button#create-question": {
+                tap: 'onCreateQuestion'
+            },
+            "button#submit-question": {
+                tap: 'onSubmitQuestion'
             }
         }
     },
@@ -58,6 +67,16 @@ Ext.define('MyApp.controller.MyController', {
         websocket.send('0');
     },
 
+    onCreateQuestion: function(button, e, eOpts) {
+
+    },
+
+    onSubmitQuestion: function(button, e, eOpts) {
+        var qText = this.getQuestiontext().getValue();
+        qsocket.send(qText);
+        qsocket.send("101");
+    },
+
     loadPStore: function() {
 
         pchart = this.getPrimarychart();
@@ -73,7 +92,7 @@ Ext.define('MyApp.controller.MyController', {
                 open: function (ws) {
                     console.log ('The websocket is ready to use');
                     me.getRequestdelay().setHtml('Connected!');
-                    ws.send ('This is a simple text');
+                    //ws.send ('This is a simple text');
                 } ,
                 close: function (ws) {
                     console.log ('Disconnected :(');
@@ -82,13 +101,39 @@ Ext.define('MyApp.controller.MyController', {
                     Ext.Error.raise (error);
                 } ,
                 message: function (ws, message) {
+                    if (message.question == undefined){
                     var end = new Date().getTime();
                     var time = end - me.start;
                     console.log(time);
                     me.getRequestdelay().setHtml('Time (send,receive & chart update) :'+time+'ms');
                     me.getPrimarychart().getStore().setData(message);
+                    }
                 }
             }
+
+        });
+        qsocket = Ext.create ('Ext.ux.WebSocket', {
+            url: 'ws://captain-zero.tk:8080' ,
+            listeners: {
+                open: function (ws) {
+                    console.log ('The Question is Connected');
+                    me.getRequestdelay().setHtml('Connected!');
+                    ws.send ('101');
+                } ,
+                close: function (ws) {
+                    console.log ('Disconnected :(');
+                } ,
+                error: function (ws, error) {
+                    Ext.Error.raise (error);
+                } ,
+                message: function (ws, message) {
+                    if (message.question){
+                    jiji = message;
+                   me.getTitle().setHtml(message.question);
+                    }
+                }
+            }
+
         });
     }
 
