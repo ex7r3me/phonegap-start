@@ -86,6 +86,7 @@ Ext.define('MyApp.controller.MyController', {
                     console.log ('The websocket is ready to use');
                     me.getRequestdelay().setHtml('Connected!');
                       ws.send ('101');
+                      ws.send ('102');
                 } ,
                 close: function (ws) {
                      me.getRequestdelay().setHtml('Disconnected :(');

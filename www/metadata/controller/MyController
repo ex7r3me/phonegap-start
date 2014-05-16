@@ -140,6 +140,7 @@
                     "            console.log ('The websocket is ready to use');\r",
                     "            me.getRequestdelay().setHtml('Connected!');\r",
                     "              ws.send ('101');\r",
+                    "              ws.send ('102');\r",
                     "        } ,\r",
                     "        close: function (ws) {\r",
                     "             me.getRequestdelay().setHtml('Disconnected :(');\r",
